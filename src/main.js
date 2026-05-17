@@ -18,8 +18,10 @@ import {
     ToastService, Toolbar, Tooltip
 } from "primevue";
 import i18n from "./i18n.js";
+import router from "./router.js";
 
 createApp(App)
+    .use(router)
     .use(i18n)
     .use(PrimeVue, { theme: { preset: Material},ripple:true})
     .use(ConfirmationService)
