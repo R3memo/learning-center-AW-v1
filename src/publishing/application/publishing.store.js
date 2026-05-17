@@ -39,7 +39,7 @@ const usePublishingStore = defineStore('publishing', () => {
         })
     }
 
-    function upsdateCategory(category){
+    function updateCategory(category){
         publishingApi.updateCategory(category).then(response => {
             const resource = response.data;
             const updateCategory = CategoryAssembler.toEntityFromResource(resource);
@@ -58,4 +58,18 @@ const usePublishingStore = defineStore('publishing', () => {
             errors.value.push(error);
         });
     }
-})
+
+    return {
+        categories,
+        errors,
+        categoriesLoaded,
+        categoriesCount,
+        fetchCategories,
+        getCategoryById,
+        addCategory,
+        updateCategory,
+        deleteCategory
+    }
+});
+
+export default usePublishingStore;
