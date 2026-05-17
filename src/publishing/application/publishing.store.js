@@ -51,7 +51,7 @@ const usePublishingStore = defineStore('publishing', () => {
     }
 
     function deleteCategory(category){
-        publishingApi.deleteCategory(category.id).then(response => {
+        publishingApi.deleteCategory(category.id).then(() => {
             const index = categories.value.findIndex(c => c['id']=== category.id);
             if(index !== -1) categories.value.splice(index, 1);
         }).catch(error =>{
